@@ -24,13 +24,13 @@
                                 <items>
                                     <barButtonItem title="Library" id="FkP-Rt-zUF">
                                         <connections>
-                                            <action selector="libraryImage:" destination="BYZ-38-t0r" id="3Nd-Lv-og6"/>
+                                            <action selector="pickImage:" destination="BYZ-38-t0r" id="TrO-hp-Xc7"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1Nh-fv-nEw"/>
                                     <barButtonItem title="Item" image="camera.fill" catalog="system" id="44i-Tu-R0Q">
                                         <connections>
-                                            <action selector="cameraImage:" destination="BYZ-38-t0r" id="jrq-pL-OBd"/>
+                                            <action selector="pickImage:" destination="BYZ-38-t0r" id="pXq-0p-maS"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -83,7 +83,7 @@
                     <connections>
                         <outlet property="bottomText" destination="9No-J8-MSC" id="hx1-Vp-cK8"/>
                         <outlet property="bottomToolbar" destination="Hum-UR-y7a" id="qpN-Ll-6po"/>
-                        <outlet property="cameraButton" destination="44i-Tu-R0Q" id="ufB-xL-Q9I"/>
+                        <outlet property="cameraButton" destination="44i-Tu-R0Q" id="diA-la-mpc"/>
                         <outlet property="imagePickerVIew" destination="U6T-lC-vZ6" id="SEc-IB-av1"/>
                         <outlet property="topText" destination="yW2-pi-gPc" id="cR9-R2-oK3"/>
                         <outlet property="topToolbar" destination="511-Rb-3bx" id="0rF-CP-0ai"/>

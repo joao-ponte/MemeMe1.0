@@ -17,7 +17,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomToolbar: UIToolbar!
     
     let imageController = ImageController()
-    var textController: TextController!
+    var textController: TextController = TextController()
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,7 +34,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textController = TextController()
         topText.delegate = textController
         bottomText.delegate = textController
         topText.defaultTextAttributes = textController.memeTextAttributes
@@ -46,21 +46,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.tag = 2
     }
     
-    @IBAction func cameraImage(_ sender: Any) {
+    @IBAction func pickImage(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .camera
-        imageController.imageView = imagePickerVIew
         imagePicker.delegate = imageController
+        switch sender {
+        case cameraButton:
+            imagePicker.sourceType = .camera
+        default:
+            imagePicker.sourceType = .photoLibrary
+        }
+        imageController.imageView = imagePickerVIew
         present(imagePicker, animated: true, completion: nil)
     }
-    
-    @IBAction func libraryImage(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
-        imageController.imageView = imagePickerVIew
-        imagePicker.delegate = imageController
-        present(imagePicker, animated: true, completion: nil)
-    }
+
     
     @IBAction func shareMeme(_ sender: Any) {
         // Generate the memed image

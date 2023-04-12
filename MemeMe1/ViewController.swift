@@ -63,10 +63,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func shareMeme(_ sender: Any) {
+        // Generate the memed image
+        let memedImage = generateMemedImage()
         
+        // Create an activity view controller
+        let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
+        // Define a completion handler for activity view controller
+        activityViewController.completionWithItemsHandler = { (activityType, completed, returnedItems, error) in
+            if completed {
+                // Save the meme if the activity was completed
+                self.saveMeme()
+            }
+        }
         
-        
+        // Present the activity view controller
+        present(activityViewController, animated: true, completion: nil)
     }
     
     
@@ -111,21 +123,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var originalImage: UIImage
         var memedImage: UIImage
         
-        func save() {
-            let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
-            }
-        
     }
     
     func generateMemedImage() -> UIImage {
-        
-        // Render view to an image
+        topToolbar.isHidden = true
+        bottomToolbar.isHidden = true
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
+        topToolbar.isHidden = false
+        bottomToolbar.isHidden = false
         
         return memedImage
+    }
+    
+    func saveMeme() {
+        // Create the meme object
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerVIew.image!, memedImage: generateMemedImage())
+        
+        // Add meme to memes array in App Delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
 }

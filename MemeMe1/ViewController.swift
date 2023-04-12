@@ -84,7 +84,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @objc func keyboardWillShow(_ notification: Notification) {
-            if bottomText!.isEditing {
+        if bottomText!.isEditing && view.frame.origin.y == 0 {
                 let userInfo = notification.userInfo
                 let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
                 let kbSize = keyboardSize.cgRectValue.height
@@ -98,13 +98,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
         
-    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
-        
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        return keyboardSize.cgRectValue.height
-    }
-    
     func subscribeToKeyboardNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)

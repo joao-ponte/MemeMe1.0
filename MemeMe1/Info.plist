@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>To take photos and create memes in the app, please allow access to your device&apos;s camera by enabling the &quot;Camera usage Description&quot; feature in your privacy settings. Thank you.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>To create memes using your photos, please allow access to your photo library by enabling the &quot;Photo Library usage Description&quot; feature in your device&apos;s privacy settings. Thank you.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

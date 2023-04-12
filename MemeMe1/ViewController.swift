@@ -22,9 +22,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cameraButton.isEnabled = false
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        subscribeToKeyboardNotifications()
+        #if targetEnvironment(simulator)
+    // Code to be executed only in the simulator
+            cameraButton.isEnabled = false
+        #else
+    // Code to be executed on a real device
+            cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        #endif
+            subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

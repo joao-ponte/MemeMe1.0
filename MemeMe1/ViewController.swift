@@ -22,6 +22,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        cameraButton.isEnabled = false
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
     }
@@ -34,16 +35,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topText.delegate = textController
-        bottomText.delegate = textController
-        topText.defaultTextAttributes = textController.memeTextAttributes
-        bottomText.defaultTextAttributes = textController.memeTextAttributes
-        topText.textAlignment = .center
-        bottomText.textAlignment = .center
-        topText.text = "TOP"
-        bottomText.text = "BOTTOM"
-        topText.tag = 1
-        bottomText.tag = 2
+        setupTextField(textField: topText, text: "TOP")
+        setupTextField(textField: bottomText, text: "BOTTOM")
     }
     
     @IBAction func pickImage(_ sender: UIBarButtonItem) {
@@ -136,6 +129,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Add meme to memes array in App Delegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memes.append(meme)
+    }
+    
+    func setupTextField(textField: UITextField, text: String) {
+        textField.delegate = textController
+        textField.defaultTextAttributes = textController.memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = text
+        textField.tag = textField == topText ? 1 : 2
     }
     
 }

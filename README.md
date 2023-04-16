@@ -1,6 +1,5 @@
 
-# <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" height="40" width="40">  Pitch Perfect App 
- MemeMe 1.0
+# <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" height="40" width="40">  MemeMe1.0 App 
 
 MemeMe 1.0 is a fun and simple iOS app that allows users to create memes by adding top and bottom text to an image. Users can either take a photo with the camera or select an image from their photo gallery. The app provides a user-friendly interface for adding and editing text, and it allows users to save their memes to the photo library or share them with friends.
 
@@ -54,6 +53,8 @@ The MemeMe 1.0 app is built using the following technologies and tools:
 - UITextFieldDelegate for handling text input and editing.
 - UIImagePickerControllerDelegate for image processing and manipulation.
 ## Screenshots
+<img src="https://github.com/joao-ponte/MemeMe1.0/blob/main/MemeMeGifs/MemeMeoperatinggif.gif?raw=true" height="500" width="250">
+
 ## Authors
 
 - [@Joao Ponte](https://www.linkedin.com/in/jponte/)

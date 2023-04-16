@@ -53,7 +53,7 @@ The MemeMe 1.0 app is built using the following technologies and tools:
 - UITextFieldDelegate for handling text input and editing.
 - UIImagePickerControllerDelegate for image processing and manipulation.
 ## Screenshots
-<img src="https://github.com/joao-ponte/MemeMe1.0/blob/main/MemeMeGifs/MemeMeoperatinggif.gif?raw=true" height="500" width="250">
+<img src="https://github.com/joao-ponte/MemeMe1.0/blob/main/MemeMeGifs/MemeMeoperatinggifLandscape.gif?raw=true" >
 
 ## Authors
 

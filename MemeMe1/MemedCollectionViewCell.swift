@@ -7,10 +7,7 @@
 
 import UIKit
 
-class MemedCollectionViewCell: UICollectionView {
+class MemedCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var memedImageView: UIImageView!
-    
-    
-    
 }

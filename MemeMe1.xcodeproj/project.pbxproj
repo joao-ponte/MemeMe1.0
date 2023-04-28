@@ -75,8 +75,8 @@
 				FCAE2E4F29E556390096D7DC /* Assets.xcassets */,
 				FCAE2E5129E556390096D7DC /* LaunchScreen.storyboard */,
 				FCAE2E5429E556390096D7DC /* Info.plist */,
-				FCB920EA29FBD65E00E76132 /* MemedCollectionViewCell.swift */,
 				FCB920EC29FBD67200E76132 /* MemedTableViewCell.swift */,
+				FCB920EA29FBD65E00E76132 /* MemedCollectionViewCell.swift */,
 			);
 			path = MemeMe1;
 			sourceTree = "<group>";

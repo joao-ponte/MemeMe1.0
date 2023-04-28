@@ -84,6 +84,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="0DT-hx-nDj"/>
+                    <connections>
+                        <outlet property="flowLayout" destination="tDa-ff-65Q" id="KHW-WQ-8ty"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUa-7V-CZr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

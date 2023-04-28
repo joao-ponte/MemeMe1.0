@@ -15,4 +15,15 @@ class SentMemesTableVC: UITableViewController {
         return appDelegate.memes
         
     }
+    
+    
+    @IBAction func newMeme(_ sender: Any) {
+    }
+    
+    
+    @IBAction func editMeme(_ sender: Any) {
+    }
+    
+    
+    
 }

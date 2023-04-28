@@ -31,6 +31,15 @@ class SentMemesCollectionVC: UICollectionViewController {
     }
     
     
+    @IBAction func newMeme(_ sender: Any) {
+    }
+    
+    @IBAction func editMeme(_ sender: Any) {
+    }
+    
+    
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         memes.count
     }

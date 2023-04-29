@@ -92,6 +92,7 @@
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="bJK-Ff-pX7">
                             <connections>
                                 <action selector="newMeme:" destination="6vC-XS-W6d" id="miQ-JM-r4J"/>
+                                <segue destination="BYZ-38-t0r" kind="show" id="KrA-d8-mm1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -112,10 +113,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U6T-lC-vZ6" userLabel="Image Picker VIew">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="147" width="393" height="568"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hum-UR-y7a">
-                                <rect key="frame" x="0.0" y="769" width="393" height="44"/>
+                                <rect key="frame" x="0.0" y="715" width="393" height="49"/>
                                 <items>
                                     <barButtonItem title="Library" id="FkP-Rt-zUF">
                                         <connections>
@@ -142,7 +143,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="511-Rb-3bx">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="44"/>
                                 <items>
                                     <barButtonItem title="Item" image="square.and.arrow.up" catalog="system" id="JAx-cL-E4X">
                                         <connections>
@@ -175,6 +176,7 @@
                             <constraint firstItem="511-Rb-3bx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="x2f-eG-quU"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="M2j-Ar-JfX"/>
                     <connections>
                         <outlet property="bottomText" destination="9No-J8-MSC" id="hx1-Vp-cK8"/>
                         <outlet property="bottomToolbar" destination="Hum-UR-y7a" id="qpN-Ll-6po"/>

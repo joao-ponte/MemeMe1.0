@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let imageController = ImageController()
     var textController: TextController = TextController()
+    let memesRepository = MemeRepository.shared
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +71,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if completed {
                 // Save the meme if the activity was completed
                 self.saveMeme()
+                print("🥸\(self.memesRepository.getAll())")
             }
         }
         
@@ -105,14 +107,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var memedImage: UIImage
-        
-    }
     
     func generateMemedImage() -> UIImage {
         topToolbar.isHidden = true
@@ -132,8 +126,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerVIew.image!, memedImage: generateMemedImage())
         
         // Add meme to memes array in App Delegate
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memes.append(meme)
+        memesRepository.add(meme: meme)
     }
     
     func setupTextField(textField: UITextField, text: String) {

@@ -71,7 +71,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if completed {
                 // Save the meme if the activity was completed
                 self.saveMeme()
-                print("🥸\(self.memesRepository.getAll())")
             }
         }
         

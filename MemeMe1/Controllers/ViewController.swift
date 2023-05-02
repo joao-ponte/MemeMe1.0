@@ -126,6 +126,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Add meme to memes array in App Delegate
         memesRepository.add(meme: meme)
+        
     }
     
     func setupTextField(textField: UITextField, text: String) {

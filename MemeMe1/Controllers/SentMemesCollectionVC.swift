@@ -16,12 +16,18 @@ class SentMemesCollectionVC: UICollectionViewController {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let space:CGFloat = 3.0
-        let dimension = (view.frame.size.width - ( 2 * space)) / 3.0
         
+        let space:CGFloat = 5.0
+        let dimension = (view.frame.size.width - ( 2 * space)) / 3.0
+
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)

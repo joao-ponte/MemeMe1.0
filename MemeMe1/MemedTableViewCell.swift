@@ -7,6 +7,10 @@
 
 import UIKit
 
-//class MemedTableViewCell: UITableViewDataSource {
-//    
-//}
+class MemedTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var memedImageView: UIImageView!
+    @IBOutlet weak var bottomText: UILabel!
+    @IBOutlet weak var topText: UILabel!
+    
+}

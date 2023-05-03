@@ -24,13 +24,17 @@ class SentMemesCollectionVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let space:CGFloat = 5.0
-        let dimension = (view.frame.size.width - ( 2 * space)) / 3.0
+//        let layout = UICollectionViewFlowLayout()
+//               layout.itemSize = CGSize(width: view.frame.width / 3, height: view.frame.height / 3)
+//               collectionView.collectionViewLayout = layout
 
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        let space:CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        let collectionViewFlowLayout = UICollectionViewFlowLayout()
+        collectionViewFlowLayout.minimumInteritemSpacing = space
+        collectionViewFlowLayout.minimumLineSpacing = space
+        collectionViewFlowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        collectionView.collectionViewLayout = collectionViewFlowLayout
     }
     
     
@@ -53,6 +57,9 @@ class SentMemesCollectionVC: UICollectionViewController {
         let meme = memes[(indexPath as NSIndexPath).row]
         
         cell.memedImageView.image = meme.memedImage
+        
+//        cell.contentView.frame = cell.bounds
+//        cell.contentView.autoresizingMask = [.flexibleLeftMargin, .flexibleWidth, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleBottomMargin]
         
         return cell
         

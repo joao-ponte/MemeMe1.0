@@ -18,6 +18,12 @@ class SentMemesTableVC: UIViewController, UITableViewDataSource, UITableViewDele
     @IBAction func editMeme(_ sender: Any) {
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        memedTV.reloadData()
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

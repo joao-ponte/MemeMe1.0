@@ -58,6 +58,8 @@
 			children = (
 				FC46C31A29FD599D0002DAE7 /* MemeRepository.swift */,
 				FC46C31D29FD5ACE0002DAE7 /* Meme.swift */,
+				FCAE2E4829E556370096D7DC /* SceneDelegate.swift */,
+				FCAE2E4F29E556390096D7DC /* Assets.xcassets */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -82,17 +84,22 @@
 			isa = PBXGroup;
 			children = (
 				FC46C31C29FD59C50002DAE7 /* Model */,
+				FCAE50322A03BEA90028C0F2 /* View */,
 				FCB920E929FA7CF100E76132 /* Controllers */,
-				FCAE2E4629E556370096D7DC /* AppDelegate.swift */,
-				FCAE2E4829E556370096D7DC /* SceneDelegate.swift */,
-				FCAE2E4C29E556370096D7DC /* Main.storyboard */,
-				FCAE2E4F29E556390096D7DC /* Assets.xcassets */,
-				FCAE2E5129E556390096D7DC /* LaunchScreen.storyboard */,
 				FCAE2E5429E556390096D7DC /* Info.plist */,
-				FCB920EC29FBD67200E76132 /* MemedTableViewCell.swift */,
-				FCB920EA29FBD65E00E76132 /* MemedCollectionViewCell.swift */,
 			);
 			path = MemeMe1;
+			sourceTree = "<group>";
+		};
+		FCAE50322A03BEA90028C0F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCB920EA29FBD65E00E76132 /* MemedCollectionViewCell.swift */,
+				FCB920EC29FBD67200E76132 /* MemedTableViewCell.swift */,
+				FCAE2E4C29E556370096D7DC /* Main.storyboard */,
+				FCAE2E5129E556390096D7DC /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FCB920E929FA7CF100E76132 /* Controllers */ = {
@@ -103,6 +110,7 @@
 				FCAE2E4A29E556370096D7DC /* CreateEditMemeVC.swift */,
 				FCB920E529FA7AC800E76132 /* SentMemesCollectionVC.swift */,
 				FCB920E729FA7AE800E76132 /* SentMemesTableVC.swift */,
+				FCAE2E4629E556370096D7DC /* AppDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

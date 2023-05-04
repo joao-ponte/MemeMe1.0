@@ -23,11 +23,7 @@ class SentMemesCollectionVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        let layout = UICollectionViewFlowLayout()
-        //               layout.itemSize = CGSize(width: view.frame.width / 3, height: view.frame.height / 3)
-        //               collectionView.collectionViewLayout = layout
-        
+
         let space:CGFloat = 3.0
         let dimension = (view.frame.size.width - (2 * space)) / 3.0
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -35,13 +31,6 @@ class SentMemesCollectionVC: UICollectionViewController {
         collectionViewFlowLayout.minimumLineSpacing = space
         collectionViewFlowLayout.itemSize = CGSize(width: dimension, height: dimension)
         collectionView.collectionViewLayout = collectionViewFlowLayout
-    }
-    
-    
-    @IBAction func newMeme(_ sender: Any) {
-    }
-    
-    @IBAction func editMeme(_ sender: Any) {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,26 +49,8 @@ class SentMemesCollectionVC: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let meme = memes[indexPath.row]
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {(action) in MemeRepository.shared.deleteMeme(meme)
-        
+        MemeRepository.performActionOnMeme(meme, inViewController: self, atIndexPath: indexPath) {
             collectionView.deleteItems(at: [indexPath])
-        }))
-        alert.addAction(UIAlertAction(title: "Share", style: .default, handler: {(action) in let activityViewController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
-            
-            self.present(activityViewController, animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { _ in
-           
-            let createEditMemeVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateEditMemeVC") as! CreateEditMemeVC
-            createEditMemeVC.memeToEdit = meme
-            
-            self.navigationController?.pushViewController(createEditMemeVC, animated: true)
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-       
-        present(alert, animated: true, completion: nil)
-        
+        }
     }
 }

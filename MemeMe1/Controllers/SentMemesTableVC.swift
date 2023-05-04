@@ -15,22 +15,19 @@ class SentMemesTableVC: UIViewController, UITableViewDataSource, UITableViewDele
     
     @IBOutlet var memedTV: UITableView!
     
-    @IBAction func editMeme(_ sender: Any) {
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         memedTV.reloadData()
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         memedTV.dataSource = self
         memedTV.delegate = self
     }
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         memes.count
@@ -49,8 +46,11 @@ class SentMemesTableVC: UIViewController, UITableViewDataSource, UITableViewDele
         
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let meme = memes[indexPath.row]
+        MemeRepository.performActionOnMeme(meme, inViewController: self, atIndexPath: indexPath) {
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 }

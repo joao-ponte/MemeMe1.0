@@ -42,13 +42,13 @@ class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINav
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextField(textField: topText, text: "TOP")
+        setupTextField(textField: bottomText, text: "BOTTOM")
         if let meme = memeToEdit {
             imagePickerVIew.image = meme.originalImage
             topText.text = meme.topText
             bottomText.text = meme.bottomText
         }
-        setupTextField(textField: topText, text: "TOP")
-        setupTextField(textField: bottomText, text: "BOTTOM")
     }
     
     @IBAction func pickImage(_ sender: UIBarButtonItem) {

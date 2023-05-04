@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerVIew: UIImageView!
@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let imageController = ImageController()
     var textController: TextController = TextController()
     let memesRepository = MemeRepository.shared
+    var memeToEdit: Meme?
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +42,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let meme = memeToEdit {
+            imagePickerVIew.image = meme.originalImage
+            topText.text = meme.topText
+            bottomText.text = meme.bottomText
+        }
         setupTextField(textField: topText, text: "TOP")
         setupTextField(textField: bottomText, text: "BOTTOM")
     }
@@ -136,7 +142,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.text = text
         textField.tag = textField == topText ? 1 : 2
     }
-    
 }
 
 

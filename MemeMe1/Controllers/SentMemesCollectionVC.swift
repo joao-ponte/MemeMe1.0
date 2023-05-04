@@ -70,6 +70,13 @@ class SentMemesCollectionVC: UICollectionViewController {
             
             self.present(activityViewController, animated: true, completion: nil)
         }))
+        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { _ in
+           
+            let createEditMemeVC = self.storyboard?.instantiateViewController(withIdentifier: "CreateEditMemeVC") as! CreateEditMemeVC
+            createEditMemeVC.memeToEdit = meme
+            
+            self.navigationController?.pushViewController(createEditMemeVC, animated: true)
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
        
         present(alert, animated: true, completion: nil)

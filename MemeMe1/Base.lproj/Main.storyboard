@@ -85,11 +85,6 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="0DT-hx-nDj">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="2AY-vv-P8D">
-                            <connections>
-                                <action selector="editMeme:" destination="6vC-XS-W6d" id="Skx-nr-Gqs"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="bJK-Ff-pX7">
                             <connections>
                                 <action selector="newMeme:" destination="6vC-XS-W6d" id="miQ-JM-r4J"/>
@@ -105,19 +100,19 @@
             </objects>
             <point key="canvasLocation" x="-266.41221374045801" y="-564.08450704225356"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Edit MemeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateEditMemeVC" id="BYZ-38-t0r" customClass="CreateEditMemeVC" customModule="MemeMe1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U6T-lC-vZ6" userLabel="Image Picker VIew">
-                                <rect key="frame" x="0.0" y="147" width="393" height="519"/>
+                                <rect key="frame" x="0.0" y="147" width="393" height="573"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hum-UR-y7a">
-                                <rect key="frame" x="0.0" y="666" width="393" height="49"/>
+                                <rect key="frame" x="0.0" y="720" width="393" height="44"/>
                                 <items>
                                     <barButtonItem title="Library" id="FkP-Rt-zUF">
                                         <connections>
@@ -264,11 +259,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Sent Memes" id="fzp-Je-j7o">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="ygw-uS-eov">
-                            <connections>
-                                <action selector="editMeme:" destination="Qxd-b7-0zB" id="1Op-9C-N5V"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="kUn-kg-kZj">
                             <connections>
                                 <action selector="newMeme:" destination="Qxd-b7-0zB" id="eY9-24-4qj"/>
@@ -304,7 +294,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mb6-1h-nlJ"/>
+        <segue reference="KrA-d8-mm1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>

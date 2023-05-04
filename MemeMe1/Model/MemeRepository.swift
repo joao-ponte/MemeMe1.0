@@ -21,7 +21,11 @@ class MemeRepository {
     }
     
     
-    
+    func deleteMeme(_ memeToDelete: Meme) {
+        if let indexToDelete = memes.firstIndex(where: { $0 == memeToDelete }) {
+            memes.remove(at: indexToDelete)
+        }
+    }
 }
 
 

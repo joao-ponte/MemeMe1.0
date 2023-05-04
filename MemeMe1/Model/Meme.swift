@@ -13,4 +13,11 @@ struct Meme {
     var originalImage: UIImage
     var memedImage: UIImage
     
+    static func == (lhs: Meme, rhs: Meme) -> Bool {
+        return lhs.topText == rhs.topText &&
+        lhs.bottomText == rhs.bottomText &&
+        lhs.originalImage == rhs.originalImage &&
+        lhs.memedImage == rhs.memedImage
+    }
 }
+

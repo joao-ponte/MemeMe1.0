@@ -43,7 +43,6 @@ class SentMemesCollectionVC: UICollectionViewController {
         let meme = memes[(indexPath as NSIndexPath).row]
         cell.memedImageView.image = meme.memedImage
         return cell
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -12,6 +12,11 @@ class MemeRepository {
     static let shared = MemeRepository()
     private init() {}
     
+    func saveMeme(topText: String, bottomText: String, originalImage: UIImage, memedImage: UIImage) {
+        let meme = Meme(topText: topText, bottomText: bottomText, originalImage: originalImage, memedImage: memedImage)
+        add(meme: meme)
+    }
+    
     func getAll() -> [Meme] {
         memes
     }
@@ -19,7 +24,6 @@ class MemeRepository {
     func add(meme: Meme) {
         memes.append(meme)
     }
-    
     
     func deleteMeme(_ memeToDelete: Meme) {
         if let indexToDelete = memes.firstIndex(where: { $0 == memeToDelete }) {
@@ -39,21 +43,18 @@ class MemeRepository {
                 viewController.navigationController?.popViewController(animated: true)
             }
         }))
-
         alert.addAction(UIAlertAction(title: "Share", style: .default, handler: { action in
             let activityViewController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
             viewController.present(activityViewController, animated: true, completion: nil)
         }))
-
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { action in
             let createEditMemeVC = viewController.storyboard?.instantiateViewController(withIdentifier: "CreateEditMemeVC") as! CreateEditMemeVC
             createEditMemeVC.memeToEdit = meme
             viewController.navigationController?.pushViewController(createEditMemeVC, animated: true)
         }))
-
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
         viewController.present(alert, animated: true, completion: nil)
     }
+    
 }
 

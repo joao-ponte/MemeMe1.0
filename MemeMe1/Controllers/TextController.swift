@@ -28,6 +28,14 @@ class TextController: NSObject, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    func setupTextField(_ textField: UITextField, withText text: String, tag: Int) {
+        textField.delegate = self
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = text
+        textField.tag = tag
+    }
 }
 
 

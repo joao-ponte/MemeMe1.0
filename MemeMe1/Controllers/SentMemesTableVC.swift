@@ -43,7 +43,6 @@ class SentMemesTableVC: UIViewController, UITableViewDataSource, UITableViewDele
         cell.topText.text = meme.topText
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

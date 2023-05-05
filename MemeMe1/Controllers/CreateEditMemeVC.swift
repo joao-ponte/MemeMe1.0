@@ -18,13 +18,14 @@ class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var shareMemeButton: UIBarButtonItem!
     
     let imageController = ImageController()
-    var textController: TextController = TextController()
+    var textController = TextController()
     let memesRepository = MemeRepository.shared
     var memeToEdit: Meme?
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
 #if targetEnvironment(simulator)
         // Code to be executed only in the simulator
         cameraButton.isEnabled = false
@@ -37,25 +38,28 @@ class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINav
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
         
+        unsubscribeFromKeyboardNotifications()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTextField(textField: topText, text: "TOP")
-        setupTextField(textField: bottomText, text: "BOTTOM")
+        topText.delegate = textController
+        bottomText.delegate = textController
+        textController.setupTextField(topText, withText: "TOP", tag: 1)
+        textController.setupTextField(bottomText, withText: "BOTTOM", tag: 2)
+
         if let meme = memeToEdit {
             imagePickerView.image = meme.originalImage
             topText.text = meme.topText
             bottomText.text = meme.bottomText
         }
         shareMemeButton.isEnabled = false
-
     }
     
     @IBAction func pickImage(_ sender: UIBarButtonItem) {
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = imageController
         switch sender {
@@ -69,29 +73,23 @@ class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINav
         present(imagePicker, animated: true, completion: nil)
     }
     
-    
     @IBAction func shareMeme(_ sender: Any) {
         // Generate the memed image
         let memedImage = generateMemedImage()
-        
         // Create an activity view controller
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        
         // Define a completion handler for activity view controller
-        activityViewController.completionWithItemsHandler = { (activityType, completed, returnedItems, error) in
+        activityViewController.completionWithItemsHandler = { [self] (activityType, completed, returnedItems, error) in
             if completed {
-                // Save the meme if the activity was completed
-                self.saveMeme()
+                MemeRepository.shared.saveMeme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
             }
         }
-        
         // Present the activity view controller
         present(activityViewController, animated: true, completion: nil)
     }
     
-    
-    
     @objc func keyboardWillShow(_ notification: Notification) {
+        
         if bottomText!.isEditing && view.frame.origin.y == 0 {
             let userInfo = notification.userInfo
             let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
@@ -103,7 +101,6 @@ class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINav
     @objc func keyboardWillHide(_ notification:Notification) {
         
         view.frame.origin.y = 0
-        
     }
     
     func subscribeToKeyboardNotifications() {
@@ -119,6 +116,7 @@ class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     func generateMemedImage() -> UIImage {
+        
         topToolbar.isHidden = true
         bottomToolbar.isHidden = true
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -129,23 +127,6 @@ class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINav
         bottomToolbar.isHidden = false
         
         return memedImage
-    }
-    
-    func saveMeme() {
-        // Create the meme object
-        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
-        
-        // Add meme to memes array in App Delegate
-        memesRepository.add(meme: meme)
-        
-    }
-    
-    func setupTextField(textField: UITextField, text: String) {
-        textField.delegate = textController
-        textField.defaultTextAttributes = textController.memeTextAttributes
-        textField.textAlignment = .center
-        textField.text = text
-        textField.tag = textField == topText ? 1 : 2
     }
 }
 

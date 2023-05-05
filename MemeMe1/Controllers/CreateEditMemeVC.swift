@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class CreateEditMemeVC: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -82,6 +82,7 @@ class CreateEditMemeVC: UIViewController, UIImagePickerControllerDelegate, UINav
         activityViewController.completionWithItemsHandler = { [self] (activityType, completed, returnedItems, error) in
             if completed {
                 MemeRepository.shared.saveMeme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+                navigationController?.popViewController(animated: true)
             }
         }
         // Present the activity view controller

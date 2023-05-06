@@ -52,9 +52,13 @@ class MemeRepository {
             createEditMemeVC.memeToEdit = meme
             viewController.navigationController?.pushViewController(createEditMemeVC, animated: true)
         }))
+        alert.addAction(UIAlertAction(title: "View Meme", style: .default, handler: { action in
+            let presentMemeVC = viewController.storyboard?.instantiateViewController(withIdentifier: "PresentMemeVC") as! PresentMemeVC
+            presentMemeVC.presentMeme = meme
+            viewController.navigationController?.pushViewController(presentMemeVC, animated: true)
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         viewController.present(alert, animated: true, completion: nil)
     }
-    
 }
 

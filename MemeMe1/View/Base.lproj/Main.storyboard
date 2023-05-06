@@ -103,6 +103,35 @@
             </objects>
             <point key="canvasLocation" x="-266.41221374045801" y="-564.08450704225356"/>
         </scene>
+        <!--Present MemeVC-->
+        <scene sceneID="31Y-sY-Oww">
+            <objects>
+                <viewController storyboardIdentifier="PresentMemeVC" id="FGk-3X-Jrr" customClass="PresentMemeVC" customModule="MemeMe1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vQC-ai-ALQ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pfs-Fp-wjG">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="v3t-Y5-ELw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pfs-Fp-wjG" firstAttribute="leading" secondItem="v3t-Y5-ELw" secondAttribute="leading" id="DBg-FK-eWJ"/>
+                            <constraint firstItem="v3t-Y5-ELw" firstAttribute="trailing" secondItem="pfs-Fp-wjG" secondAttribute="trailing" id="hUg-kx-vEf"/>
+                            <constraint firstItem="pfs-Fp-wjG" firstAttribute="top" secondItem="v3t-Y5-ELw" secondAttribute="top" id="i7P-9h-aeQ"/>
+                            <constraint firstItem="v3t-Y5-ELw" firstAttribute="bottom" secondItem="pfs-Fp-wjG" secondAttribute="bottom" id="wcr-YI-hNA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="memedImage" destination="pfs-Fp-wjG" id="9xb-F2-RWV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rTY-2Y-Ize" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="-732"/>
+        </scene>
         <!--Create Edit MemeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>

@@ -58,7 +58,6 @@
 			children = (
 				FC46C31A29FD599D0002DAE7 /* MemeRepository.swift */,
 				FC46C31D29FD5ACE0002DAE7 /* Meme.swift */,
-				FCAE2E4829E556370096D7DC /* SceneDelegate.swift */,
 				FCAE2E4F29E556390096D7DC /* Assets.xcassets */,
 			);
 			path = Model;
@@ -83,6 +82,8 @@
 		FCAE2E4529E556370096D7DC /* MemeMe1 */ = {
 			isa = PBXGroup;
 			children = (
+				FCAE2E4829E556370096D7DC /* SceneDelegate.swift */,
+				FCAE2E4629E556370096D7DC /* AppDelegate.swift */,
 				FC46C31C29FD59C50002DAE7 /* Model */,
 				FCAE50322A03BEA90028C0F2 /* View */,
 				FCB920E929FA7CF100E76132 /* Controllers */,
@@ -110,7 +111,6 @@
 				FCAE2E4A29E556370096D7DC /* CreateEditMemeVC.swift */,
 				FCB920E529FA7AC800E76132 /* SentMemesCollectionVC.swift */,
 				FCB920E729FA7AE800E76132 /* SentMemesTableVC.swift */,
-				FCAE2E4629E556370096D7DC /* AppDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

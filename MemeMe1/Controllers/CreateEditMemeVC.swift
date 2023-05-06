@@ -44,7 +44,7 @@ class CreateEditMemeVC: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        shareMemeButton.isEnabled = false
         topText.delegate = textController
         bottomText.delegate = textController
         textController.setupTextField(topText, withText: "TOP", tag: 1)
@@ -54,8 +54,8 @@ class CreateEditMemeVC: UIViewController, UINavigationControllerDelegate {
             imagePickerView.image = meme.originalImage
             topText.text = meme.topText
             bottomText.text = meme.bottomText
+            shareMemeButton.isEnabled = true
         }
-        shareMemeButton.isEnabled = false
     }
     
     @IBAction func pickImage(_ sender: UIBarButtonItem) {
@@ -118,13 +118,11 @@ class CreateEditMemeVC: UIViewController, UINavigationControllerDelegate {
     
     func generateMemedImage() -> UIImage {
         
-        topToolbar.isHidden = true
         bottomToolbar.isHidden = true
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        topToolbar.isHidden = false
         bottomToolbar.isHidden = false
         
         return memedImage

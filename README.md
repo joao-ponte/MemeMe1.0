@@ -7,7 +7,7 @@ MemeMe 1.0 is a fun and simple iOS app that allows users to create memes by addi
 ## User Story
 
 ```bash
-  As an user, 
+  As a user, 
   I want to have a photo that I can add a text.
   So that I can create memes to share
   with friends and bring some joy to our lives.

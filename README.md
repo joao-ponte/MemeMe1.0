@@ -35,12 +35,11 @@ The MemeMe 1.0 app provides the following features:
 - Add top and bottom text to the image.
 - Save memes to the photo library.
 - Share memes with friends via AirDrop
-## Features in progress
 - Share memes with friends via social media (Facebook, Twitter) or messaging apps (SMS, email).
-- Set up a navigation structure that creates an intuitive flow through the app.
-- Build tables with datasources and delegates.
-- Create custom table view cells.
-- Implement user interfaces with tab views and collection views.
+- Tables with datasources and delegates.
+- Custom table view cells.
+- User interfaces with tab views and collection views.
+  
 ## Screenshots
 <img src="https://github.com/joao-ponte/MemeMe1.0/blob/main/MemeMeGifs/MemeMeoperatinggifLandscape.gif?raw=true" >
 
